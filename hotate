@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+OS=$(uname -s)
+case "${OS}" in
+    Darwin)
+        ;;
+    Linux)
+        ;;
+    *)
+        echo "Unsupported system: ${OS}" >&2
+        exit 1
+        ;;
+esac
+
+export HOTATE=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+
+# load color utilities
+source "${HOTATE}/lib/style.core.bash"
+source "${HOTATE}/lib/appearance.core.bash"
+
+source "${HOTATE}/lib/base.theme.bash"
+source "${HOTATE}/lib/minimal.theme.bash"
+
+source "${HOTATE}/lib/general.alias.bash"
