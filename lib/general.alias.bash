@@ -10,3 +10,4 @@ alias l='ls -a'
 alias l1='ls -1'
 
 alias grep='grep --color=auto'
+

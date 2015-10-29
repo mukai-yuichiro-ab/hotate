@@ -16,9 +16,21 @@ export HOTATE=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 # load color utilities
 source "${HOTATE}/lib/style.core.bash"
-source "${HOTATE}/lib/appearance.core.bash"
 
+
+# load theme
 source "${HOTATE}/lib/base.theme.bash"
-source "${HOTATE}/lib/minimal.theme.bash"
+if [ -z "$HOTATE_THEME" ]; then
+    export HOTATE_THEME="minimal"
+fi
+source "${HOTATE}/lib/${HOTATE_THEME}.theme.bash"
 
-source "${HOTATE}/lib/general.alias.bash"
+for file_type in "plugin" "alias" "completion"
+do
+    LIB="${HOTATE}/lib/*.${file_type}.bash"
+    for bash_file in $LIB
+    do
+        source $bash_file
+    done
+done
+

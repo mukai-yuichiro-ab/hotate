@@ -25,15 +25,16 @@ text_style() {
             reveal)      echo -ne "\e[28m" ;;
             nostrike)    echo -ne "\e[29m" ;;
 
-            black)   echo -ne "\e[30m" ;;
-            red)     echo -ne "\e[31m" ;;
-            green)   echo -ne "\e[32m" ;;
-            yellow)  echo -ne "\e[33m" ;;
-            blue)    echo -ne "\e[34m" ;;
-            magenta) echo -ne "\e[35m" ;;
-            cyan)    echo -ne "\e[36m" ;;
+            black)   echo -ne "\e[1;30m" ;;
+            red)     echo -ne "\e[1;31m" ;;
+            green)   echo -ne "\e[1;32m" ;;
+            yellow)  echo -ne "\e[1;33m" ;;
+            blue)    echo -ne "\e[1;34m" ;;
+            magenta) echo -ne "\e[1;35m" ;;
+            cyan)    echo -ne "\e[1;36m" ;;
             white)   echo -ne "\e[37m" ;;
             xterm)   echo -ne "\e[38;5;$2m" ; shift ;;
+
 
             default) echo -ne "\e[39m" ;;
 
