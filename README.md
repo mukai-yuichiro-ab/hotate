@@ -6,4 +6,7 @@ Includes autocompletions, themes, aliases, useful functions, and more.
 
 ## Install
 
-## How to use
+```
+$ curl https://raw.githubusercontent.com/y6kai/hotate/master/tool/setup | bash
+```
+
