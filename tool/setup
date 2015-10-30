@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+main() {
+    set -e -u
+
+    OS="$(uname -s)"
+    case "${OS}" in
+        Darwin)
+            ;;
+        Linux)
+            if ! type git >/dev/null 2>/dev/null; then
+                if type apt-get >/dev/null 2>/dev/null; then
+                    apt-get -y install git
+                elif type yum >/dev/null 2>/dev/null; then
+                    yum -y install git
+                else
+                    echo 'git command is not found.'
+                fi
+            fi
+            ;;
+        *)
+            echo "Unsupported system: ${OS}" >&2
+            exit 1
+            ;;
+    esac
+
+    if [ -d "$HOME/.hotate/" ]; then
+        rm -rf "$HOME/.hotate"
+    fi
+
+    git clone --depth 1 'https://github.com/y6kai/hotate' "$HOME/.hotate"
+
+    echo ''
+    echo '_|                    _|                  _|              '
+    echo '_|_|_|      _|_|    _|_|_|_|    _|_|_|  _|_|_|_|    _|_|  '
+    echo '_|    _|  _|    _|    _|      _|    _|    _|      _|_|_|_|'
+    echo '_|    _|  _|    _|    _|      _|    _|    _|      _|      '
+    echo '_|    _|    _|_|        _|_|    _|_|_|      _|_|    _|_|_|'
+    echo 'is now installed!!'
+    echo ''
+    echo 'Please add below lines into your .bash_profile or .bashrc'
+    echo ''
+    echo 'export HOTATE=$HOME/.hotate'
+    echo 'source $HOTATE/hotate'
+
+}
+
+main
+
