@@ -1,4 +1,6 @@
-# Hotate
+![hotate](https://raw.githubusercontent.com/y6kai/ichiba/master/hotate/hotate.jpg)
+===
+
 
 **Hotate** is a collection of bash commands and scripts.
 
